@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>DotDot</title>
+<meta name="description" content="DotDot：手帐风的习惯打卡。每个习惯一张卡片、一张点点图，慢慢养成你的日常 routine。">
+<meta name="theme-color" content="#f6f5f0" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1c1b20" media="(prefers-color-scheme: dark)">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="DotDot">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;600&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="bar">
+  <a class="logo" href="#today" aria-label="DotDot 首页">Dot<span>·</span>Dot</a>
+  <span class="bar-date" id="barDate"></span>
+</header>
+
+<main id="view" class="wrap" tabindex="-1"></main>
+
+<nav class="tabs" aria-label="主导航">
+  <a href="#today" data-tab="today"><span class="ti" aria-hidden="true">●</span>今天</a>
+  <button type="button" class="tab-add" data-act="new" aria-label="新习惯">＋</button>
+  <a href="#habits" data-tab="habits"><span class="ti" aria-hidden="true">⁘</span>习惯</a>
+</nav>
+
+<dialog id="sheet" aria-labelledby="sheetTitle">
+  <form id="habitForm" method="dialog" autocomplete="off">
+    <div class="sheet-head">
+      <h2 id="sheetTitle">新习惯</h2>
+      <button type="button" class="linkbtn" data-act="close">取消</button>
+    </div>
+
+    <label class="field">
+      <span class="lbl">叫什么</span>
+      <input type="text" id="fName" maxlength="16" required placeholder="比如：起床喝一杯水">
+    </label>
+
+    <div class="field">
+      <span class="lbl">贴纸</span>
+      <div class="emojis" id="fEmoji" role="radiogroup" aria-label="选择贴纸"></div>
+    </div>
+
+    <div class="field">
+      <span class="lbl">颜色</span>
+      <div class="swatches" id="fColor" role="radiogroup" aria-label="选择颜色"></div>
+    </div>
+
+    <div class="field">
+      <span class="lbl">放在哪个时段</span>
+      <div class="seg" id="fSlot" role="radiogroup" aria-label="时段"></div>
+    </div>
+
+    <div class="field">
+      <span class="lbl">哪几天做</span>
+      <div class="seg small" id="fPreset"></div>
+      <div class="days" id="fDays" role="group" aria-label="重复的星期"></div>
+    </div>
+
+    <button type="submit" class="go wide" id="fSubmit">贴到本子上</button>
+  </form>
+</dialog>
+
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script src="app.js"></script>
+</body>
+</html>

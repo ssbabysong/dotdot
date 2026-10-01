@@ -1,0 +1,16 @@
+{
+  "name": "DotDot",
+  "short_name": "DotDot",
+  "description": "手帐风的习惯打卡：每个习惯一张点点图。",
+  "lang": "zh-CN",
+  "start_url": "./#today",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f6f5f0",
+  "theme_color": "#f6f5f0",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml" },
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
