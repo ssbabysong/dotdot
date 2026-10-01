@@ -1,5 +1,5 @@
 // Offline cache for DotDot. Bump VERSION when shipping changes.
-const VERSION = "dotdot-v1";
+const VERSION = "dotdot-v2";
 const SHELL = ["./", "index.html", "style.css", "app.js", "icon.svg", "manifest.webmanifest"];
 
 self.addEventListener("install", e => {
@@ -13,7 +13,7 @@ self.addEventListener("fetch", e => {
   if (e.request.method !== "GET") return;
   e.respondWith(
     fetch(e.request).then(res => {
-      if (res.ok && (new URL(e.request.url).origin === location.origin || e.request.url.includes("fonts.g"))) {
+      if (res.ok && (new URL(e.request.url).origin === location.origin)) {
         const copy = res.clone(); caches.open(VERSION).then(c => c.put(e.request, copy));
       }
       return res;

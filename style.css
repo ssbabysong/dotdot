@@ -4,9 +4,8 @@
   --cell:#e7e4da; --shadow:rgba(60,50,30,.10);
   --tape-a:rgba(214,168,72,.55); --tape-b:rgba(104,150,146,.50); --tape-c:rgba(190,120,150,.45); --tape-stripe:rgba(255,255,255,.28);
   --c-zhu:#cc5244; --c-cha:#6f9a5c; --c-dian:#46699a; --c-zhi:#cf9a2e; --c-ou:#a0708f; --c-qing:#4f8c88;
-  --f-display:"Ma Shan Zheng","Kaiti SC","STKaiti","KaiTi",serif;
-  --f-body:"Noto Serif SC","Songti SC","SimSun",serif;
-  --f-hand:"Caveat","Segoe Print","Bradley Hand",cursive;
+  --f-body:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC","Noto Sans CJK SC",system-ui,sans-serif;
+  --f-num:ui-rounded,"SF Pro Rounded",-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",system-ui,sans-serif;
   --bar-h:64px;
   color-scheme:light;
 }
@@ -27,9 +26,9 @@ a{color:inherit}
 
 /* top bar */
 .bar{max-width:720px;margin:0 auto 18px;display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding-block:8px}
-.logo{font-family:var(--f-hand);font-weight:700;font-size:30px;text-decoration:none;letter-spacing:.01em}
+.logo{font-family:var(--f-num);font-weight:800;font-size:24px;text-decoration:none;letter-spacing:-.01em}
 .logo span{color:var(--c-zhu);padding-inline:1px}
-.bar-date{font-family:var(--f-hand);font-size:20px;color:var(--ink-soft);font-variant-numeric:tabular-nums}
+.bar-date{font-family:var(--f-num);font-size:14px;color:var(--ink-soft);font-variant-numeric:tabular-nums}
 
 /* bottom tabs */
 .tabs{position:fixed;left:0;right:0;bottom:0;z-index:5;display:flex;justify-content:center;align-items:center;gap:clamp(36px,14vw,96px);background:color-mix(in srgb,var(--page) 92%,transparent);backdrop-filter:blur(8px);border-top:1px solid var(--line);padding-block:8px calc(8px + env(safe-area-inset-bottom,0px));padding-inline:16px}
@@ -40,10 +39,10 @@ a{color:inherit}
 .tab-add{width:52px;height:52px;border-radius:50%;border:none;background:var(--ink);color:var(--page);font-size:28px;line-height:1;margin-top:-26px;box-shadow:0 6px 16px -6px var(--shadow)}
 
 /* type */
-h1{font-family:var(--f-display);font-weight:400;font-size:clamp(36px,8vw,48px);line-height:1.15;margin:0;text-wrap:balance}
-h2{font-family:var(--f-display);font-weight:400;font-size:26px;line-height:1.2;margin:0}
+h1{font-weight:700;font-size:clamp(28px,7vw,36px);line-height:1.25;letter-spacing:.02em;margin:0;text-wrap:balance}
+h2{font-weight:700;font-size:19px;line-height:1.3;letter-spacing:.03em;margin:0}
 .muted{color:var(--ink-soft)}
-.hand{font-family:var(--f-hand)}
+.hand{font-family:var(--f-num)}
 .linkbtn{background:none;border:none;padding:4px 2px;color:var(--ink-soft);text-decoration:underline dotted;text-underline-offset:4px;font-size:14px}
 
 /* slips + washi tape */
@@ -59,18 +58,18 @@ h2{font-family:var(--f-display);font-weight:400;font-size:26px;line-height:1.2;m
 .pdots{display:flex;gap:6px;flex-wrap:wrap}
 .pdot{--hc:var(--ink);width:14px;height:14px;border-radius:50%;border:1.5px solid var(--hc)}
 .pdot.on{background:var(--hc)}
-.pcount{font-family:var(--f-hand);font-size:24px;font-weight:700;font-variant-numeric:tabular-nums}
+.pcount{font-family:var(--f-num);font-size:20px;font-weight:700;font-variant-numeric:tabular-nums}
 
 /* routine list */
 .slot-title{display:flex;align-items:baseline;gap:10px}
-.slot-title .hand{font-size:20px;color:var(--ink-soft)}
+.slot-title .hand{font-size:11px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.14em;font-weight:600}
 .rows{list-style:none;margin:0;padding:0}
 .row{display:flex;align-items:center;gap:14px;padding-block:12px;border-bottom:1px dashed var(--line)}
 .row:last-child{border-bottom:none}
 .row .meta{flex:1;min-width:0;text-decoration:none;display:block}
-.row .name{display:block;font-size:16px;font-weight:600;overflow-wrap:anywhere;line-height:1.35}
+.row .name{display:block;font-size:16px;letter-spacing:.01em;font-weight:600;overflow-wrap:anywhere;line-height:1.35}
 .row .sub{display:block;font-size:13px;color:var(--ink-soft)}
-.row .sub b{font-family:var(--f-hand);font-size:18px;color:var(--ink)}
+.row .sub b{font-family:var(--f-num);font-size:14px;color:var(--ink)}
 .row.off{opacity:.62}
 
 .check{--hc:var(--c-zhu);flex:none;width:50px;height:50px;border-radius:50%;border:2px dashed color-mix(in srgb,var(--hc) 60%,var(--line));background:transparent;display:grid;place-items:center;font-size:24px;line-height:1;padding:0;transition:transform .15s}
@@ -109,8 +108,8 @@ h2{font-family:var(--f-display);font-weight:400;font-size:26px;line-height:1.2;m
 
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px;padding-top:12px;border-top:1px dashed var(--line)}
 .stat{display:flex;flex-direction:column;min-width:0}
-.stat .v{font-family:var(--f-hand);font-weight:700;font-size:30px;line-height:1;font-variant-numeric:tabular-nums}
-.stat .v small{font-size:16px;color:var(--ink-soft);font-weight:500}
+.stat .v{font-family:var(--f-num);font-weight:700;font-size:26px;line-height:1;font-variant-numeric:tabular-nums}
+.stat .v small{font-size:13px;color:var(--ink-soft);font-weight:500}
 .stat .k{font-size:12px;color:var(--ink-soft);letter-spacing:.04em}
 @media (max-width:420px){.stats{grid-template-columns:repeat(2,1fr);row-gap:14px}}
 
@@ -135,12 +134,12 @@ h2{font-family:var(--f-display);font-weight:400;font-size:26px;line-height:1.2;m
 .detail-head .em{font-size:44px;line-height:1}
 .back{font-size:14px;color:var(--ink-soft);text-decoration:none;align-self:flex-start}
 .cal-head{max-width:420px;margin-inline:auto;display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
-.cal-head .hand{font-size:26px}
+.cal-head .hand{font-size:18px;font-weight:700}
 .cal-nav{border:1px solid var(--line);background:transparent;border-radius:50%;width:34px;height:34px}
 .cal-nav:disabled{opacity:.3;cursor:default}
 .cal{max-width:420px;margin-inline:auto;display:grid;grid-template-columns:repeat(7,1fr);gap:6px;text-align:center}
 .cal .wk{font-size:12px;color:var(--ink-soft)}
-.cd{aspect-ratio:1;max-width:100%;border-radius:50%;border:1.5px dashed var(--line);background:transparent;font-family:var(--f-hand);font-size:19px;padding:0;display:grid;place-items:center;font-variant-numeric:tabular-nums}
+.cd{aspect-ratio:1;max-width:100%;border-radius:50%;border:1.5px dashed var(--line);background:transparent;font-family:var(--f-num);font-size:15px;padding:0;display:grid;place-items:center;font-variant-numeric:tabular-nums}
 .cd.on{background:var(--hc);border:none;color:var(--slip);font-weight:700}
 .cd.rest{border-style:solid;border-color:transparent;color:var(--ink-soft)}
 .cd.today{outline:2px solid var(--ink);outline-offset:2px}

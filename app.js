@@ -268,7 +268,7 @@ function viewDetail(h) {
     <section class="hello"><div class="detail-head"><span class="em" aria-hidden="true">${esc(h.emoji || first(h.name))}</span>
       <div><h1>${esc(h.name)}</h1><p class="muted" style="margin:0">${slot[1]} · ${schedText(h.days)} · 从 ${h.created.replace(/-/g, ".")} 开始</p></div></div></section>
     <section class="slip">
-      <div class="slip-head"><h2>这一年</h2><span class="hand muted" style="font-size:18px">${streak(h) ? "连续 " + streak(h) + " 天" : ""}</span></div>
+      <div class="slip-head"><h2>这一年</h2><span class="hand muted" style="font-size:13px">${streak(h) ? "连续 " + streak(h) + " 天" : ""}</span></div>
       ${heatmap(h, 53, true)}${legend(h)}${statsBlock(h)}</section>
     <section class="slip t2" style="--hc:${cvar(h.color)}">
       <div class="cal-head"><button type="button" class="cal-nav" data-act="calprev" aria-label="上个月">‹</button>
